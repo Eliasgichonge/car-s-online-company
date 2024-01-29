@@ -1,0 +1,156 @@
+* {
+  font-family: "poppins", sans-serif;
+  box-sizing: border-box;
+}
+#cart-wrap {
+  max-width: 800px;
+  margin: 0 auto;
+}
+input.cart,
+button.cart {
+  border: 0;
+  padding: 10px;
+  color: #33ffd3;
+  background: violet;
+  cursor: pointer;
+}
+
+#cart-products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  padding: 10px;
+}
+.p-item {
+  position: relative;
+  display: flex;
+}
+.p-img {
+  width: 200px;
+  height: 200px;
+  display: flex;
+}
+.p-info {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background: rgba(45, 07, 36, 0.5);
+}
+.p-txt {
+  flex-grow: 1;
+}
+.p-name {
+  color: pink;
+  font-size: 1.1em;
+  font-weight: 700;
+}
+.p-price {
+  color: blue;
+}
+.p-add {
+  font-size: 1.5em;
+}
+
+#cart-items {
+  padding: 10px;
+}
+.c-item {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  background: bisque;
+}
+.c-item:nth-child(even) {
+  background: burlywood;
+}
+.c-qty {
+  width: 60px;
+  padding: 10px;
+}
+.c-name {
+  padding: 0 10px;
+  flex-grow: 1;
+}
+.c-del {
+  font-size: 1.2em;
+}
+.c-total {
+  padding: 10px;
+  font-size: 1em;
+  font-weight: 700;
+  background: blanchedalmond;
+}
+.c-go {
+  margin-top: 10px;
+}
+#template-product {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+body {
+  display: flex;
+  justify-content: space-between;
+  align-content: left;
+  min-height: 100vh;
+  background-image: url(./bmw-i7-&-7-series-desktop.png);
+  background-size: cover;
+  background-position: center;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: auto;
+  display: inline;
+  justify-content: space-between;
+  align-items: right;
+  text-align: right;
+  margin-bottom: 100px;
+}
+
+.logo {
+  font-size: 1cm;
+  color: rgb(100, 26, 11);
+  align-items: left;
+  text-align: left;
+  justify-content: left;
+}
+
+.navigation a {
+  position: relative;
+  font-size: 1cm;
+  color: rgb(123, 2, 6);
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 40px;
+}
+
+.navigation a::after {
+  content: "";
+  position: relative;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 3px;
+  background: violet;
+  border-radius: 5px;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.5s;
+}
+
+.navigation a:hover::after {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+.adjust {
+  align-content: center;
+  justify-content: right;
+}
