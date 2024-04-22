@@ -20,21 +20,21 @@
               <li class="nav-item"><a href="index.html" class="nav-link active" aria-current="page">HOME</a></li>
         </ul>
       </header>
-      <form action="success.html" target="_blank">
+      <form method="post" action="connect.php">
       <div class="container">
           <label for="fname"><b>First Name</b></label>
-          <input type="text" placeholder="Enter First Name" name="fname" required>
+          <input type="text" placeholder="Enter First Name" name="FirstName" required>
   
           <label for="lname"><b>Last Name</b></label>
-          <input type="text" placeholder="Enter Last Name" name="lname" required>
+          <input type="text" placeholder="Enter Last Name" name="LastName" required>
   
           <label for="email"><b>Email</b></label>
-          <input type="email" placeholder="Enter Email" name="email" required>
+          <input type="email" placeholder="Enter Email" name="Email" required>
   
           <label for="phone"><b>Phone Number</b></label>
-          <input type="tel" placeholder="Enter Phone Number" name="phone" required>
+          <input type="tel" placeholder="Enter Phone Number" name="PhoneNumber" required>
   
-          <div><a href="success.html"><button class="sub-btn">SUBMIT</button></a></div>
+          <div><input class="sub-btn" type="submit" value="Submit"></div>
           
       </div></form>
   </body>
