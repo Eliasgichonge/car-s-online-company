@@ -1,42 +1,51 @@
 <?php
-$FirstName = filter_input(INPUT_POST, 'FirstName');
-$LastName = filter_input(INPUT_POST, 'LastName');
-$Email = filter_input(INPUT_POST, 'Email');
-$PhoneNumber = filter_input(INPUT_POST, 'PhoneNumber');
+$FirstName = filter_input(INPUT_POST, 'first');
+$LastName = filter_input(INPUT_POST, 'last');
+$Email = filter_input(INPUT_POST, 'email');
+$PhoneNumber = filter_input(INPUT_POST, 'phone');
 
-if (!empty($username)) {
-    if (!empty($password)) {
+if (!empty($FirstName)) {
+    if (!empty($LastName)) {
+        if (!empty($Email)) {
+            if (!empty($PhoneNumber)) {
 
-       // $host = 'localhost'; // Replace with your database host
-        $dbname = 'elias'; // Replace with your database name
-        $username = 'root'; // Replace with your database username
-        $password = ''; // Replace with your database password
-        
+                $dbname = 'elias'; // Replace with your database name
+                $dbusername = 'root'; // Replace with your database username
+                $dbpassword = ''; // Replace with your database password
 
-        // create connection
-        $conn = new mysqli ('localhost', $dbusername, $dbpassword, $dbname);
-        if (mysqli_connect_error()) {
-            die('Connection error ('.mysqli_connect_errno().'(' .mysqli_connect_error());
-        }
-        else {
-            $sql = "INSERT INTO customers (FirstName, LastName, Email, PhoneNumber) values ('$FirstName', '$LastName', '$Email', '$PhoneNumber')";
-            if ($conn->query($sql)) {
-                echo "New record is inserted successfully";
+                // Create connection
+                $conn = new mysqli('localhost', $dbusername, $dbpassword, $dbname);
+
+                if ($conn->connect_error) {
+                    die('Connection error (' . $conn->connect_errno . ') ' . $conn->connect_error);
+                } else {
+                    // Use prepared statements to prevent SQL injection
+                    $stmt = $conn->prepare("INSERT INTO Customers (first, last, email, phone) VALUES (?, ?, ?, ?)");
+                    $stmt->bind_param("ssss", $FirstName, $LastName, $Email, $PhoneNumber);
+
+                    if ($stmt->execute()) {
+                        echo "New record is inserted successfully";
+                    } else {
+                        echo "Error: " . $stmt->error;
+                    }
+
+                    $stmt->close();
+                    $conn->close();
+                }
+            } else {
+                echo "Phone number should not be empty";
+                die();
             }
-            else{
-                echo "Error:". $sql . "<br>". $conn->error;
-            }
-            $conn->close();
+        } else {
+            echo "Email should not be empty";
+            die();
         }
-    }
-    else{
-        echo "FirstNmae should not be empty";
+    } else {
+        echo "Last name should not be empty";
         die();
     }
-}
-else {
-    echo "LastName should not be empty";
+} else {
+    echo "First name should not be empty";
     die();
 }
-
 ?>

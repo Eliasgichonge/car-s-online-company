@@ -36,16 +36,16 @@
             <form method="post" action="connect.php">
                 <div class="container">
                     <label for="fname"><b>First Name</b></label>
-                    <input type="text" placeholder="Enter First Name" name="FirstName" required>
+                    <input type="text" placeholder="Enter First Name" name="first" required>
 
                     <label for="lname"><b>Last Name</b></label>
-                    <input type="text" placeholder="Enter Last Name" name="LastName" required>
+                    <input type="text" placeholder="Enter Last Name" name="last" required>
 
                     <label for="email"><b>Email</b></label>
-                    <input type="email" placeholder="Enter Email" name="Email" required>
+                    <input type="email" placeholder="Enter Email" name="email" required>
 
                     <label for="phone"><b>Phone Number</b></label>
-                    <input type="tel" placeholder="Enter Phone Number" name="PhoneNumber" required>
+                    <input type="tel" placeholder="Enter Phone Number" name="phone" required>
 
                     <div><input class="sub-btn" type="submit" value="Submit"></div>
 
